@@ -4,10 +4,10 @@ import { Button } from "../ui/button";
 
 const WinterPostCard = () => {
   return (
-    <Container>
+    <Container className="my-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: 6 }).map((_, index) => (
-          <Card className="flex justify-center items-center" key={index}>
+          <Card className="flex justify-center items-center p-2" key={index}>
             <CardContent>
               <CardTitle>Winter Post</CardTitle>
               <CardDescription>
