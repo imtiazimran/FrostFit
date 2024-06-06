@@ -2,16 +2,20 @@ import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 function Header() {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+  const plugin = useRef(Autoplay({ delay: 2000 }));
   const sliderContent = [
     {
       id: 1,
@@ -45,20 +49,23 @@ function Header() {
     },
   ];
 
-  // for (let i = 1; i < 10; i++) {
-  //   const img = `https://picsum.photos/${200 + i}`;
-  //   sliderContent.push({
-  //     id: i,
-  //     src: img,
-  //     alt: "image",
-  //   });
-  // }
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
 
-  // console.log(sliderContent);
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
     <div className="slider-container max-h-[73vh] overflow-hidden">
       <Carousel
+        setApi={setApi}
         plugins={[plugin.current]}
         className="w-full  mx-auto"
         onMouseEnter={plugin.current.stop}

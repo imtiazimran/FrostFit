@@ -8,12 +8,13 @@ import {
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
+  className?: string;
 };
-const Form = ({ onSubmit, children }: TFormProps) => {
+const Form = ({ onSubmit, children, className }: TFormProps) => {
   const methods = useForm();
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className={className} onSubmit={methods.handleSubmit(onSubmit)}>
         <div className="grid w-full max-w-sm items-center gap-1.5">
           {children}
         </div>
