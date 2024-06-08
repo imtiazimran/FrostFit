@@ -7,7 +7,8 @@ import { logout, selectUser } from "@/redux/features/authentication/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useDarkMode } from "@/utils/DarkMoodProvider";
 import { MoonIcon } from "@radix-ui/react-icons";
-import { Link, NavLink } from "react-router-dom"; // Import the dark mode context
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo-removebg-preview.png";
 
 const Navbar = () => {
   const user = useAppSelector(selectUser);
@@ -16,8 +17,10 @@ const Navbar = () => {
 
   return (
     <header className="bg-primary ">
-      <div className="flex justify-between items-center px-10 py-3 font-semibold">
-        <Link to={"/"}>Navbar</Link>
+      <div className="flex justify-between items-center px-10 py-1 font-semibold">
+        <Link to={"/"}>
+          <img className="w-14" src={logo} alt="" />
+        </Link>
         <nav className="hidden md:flex justify-center items-center space-x-5">
           <NavLink
             className={({ isActive }) => cn(isActive ? "text-secondary" : "")}

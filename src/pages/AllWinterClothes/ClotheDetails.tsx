@@ -56,7 +56,7 @@ const WinterClothesDetail = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-96 object-cover rounded"
+              className="w-full h-72 md:h-96 object-cover rounded"
             />
           </CardHeader>
           <CardContent className="md:w-1/2">
