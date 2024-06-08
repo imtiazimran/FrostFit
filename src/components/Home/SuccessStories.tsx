@@ -6,6 +6,8 @@ import {
   CardContent,
   CardDescription,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { useDarkMode } from "@/utils/DarkMoodProvider";
 
 interface Story {
   id: number;
@@ -39,15 +41,22 @@ const successStories: Story[] = [
 ];
 
 const SuccessStories: React.FC = () => {
+  const { darkMode } = useDarkMode();
   return (
-    <section className="success-stories-section bg-green-100 py-12 px-6">
+    <section
+      className={cn(
+        darkMode
+          ? "success-stories-section  py-12 px-6"
+          : "success-stories-section bg-green-100 py-12 px-6"
+      )}
+    >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">
           Success Stories from Beneficiaries
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {successStories.map((story) => (
-            <Card key={story.id} className="p-6 bg-white shadow-md rounded-lg">
+            <Card key={story.id} className="p-6  shadow-md rounded-lg">
               <CardHeader>
                 <img
                   src={story.image}

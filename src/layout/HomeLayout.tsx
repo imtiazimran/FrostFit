@@ -10,16 +10,18 @@ import Footer from "@/components/Footer";
 
 const HomeLayout = () => {
   return (
-    <Container>
-      <Header />
-      <WinterPostCard />
-      <TestimonialCarousel />
-      <Gallery />
-      <AboutUs />
-      <ColdWeatherSafety />
-      <SuccessStories />
+    <div>
+      <Container>
+        <Header />
+        <WinterPostCard />
+        <TestimonialCarousel />
+        <Gallery />
+        <AboutUs />
+        <ColdWeatherSafety />
+        <SuccessStories />
+      </Container>
       <Footer />
-    </Container>
+    </div>
   );
 };
 

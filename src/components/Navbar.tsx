@@ -1,33 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import DashboardSidebar from "@/layout/DashboardSidebar";
+import NavSidebar from "@/layout/NavSidebar";
 import { cn } from "@/lib/utils";
 import { logout, selectUser } from "@/redux/features/authentication/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useDarkMode } from "@/utils/DarkMoodProvider";
 import { MoonIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom"; // Import the dark mode context
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
-  if (darkMode) {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
+  const { toggleDarkMode } = useDarkMode(); // Use the context
+
   return (
-    <header className="bg-primary">
-      <div className="flex justify-between items-center px-10 py-3 font-semibold ">
+    <header className="bg-primary ">
+      <div className="flex justify-between items-center px-10 py-3 font-semibold">
         <Link to={"/"}>Navbar</Link>
-        <nav className="hidden  md:flex justify-center items-center space-x-5">
+        <nav className="hidden md:flex justify-center items-center space-x-5">
           <NavLink
             className={({ isActive }) => cn(isActive ? "text-secondary" : "")}
             to="/winter-clothes"
           >
-            winter-clothes
+            Winter Clothes
           </NavLink>
           {user && (
             <NavLink
@@ -67,16 +63,16 @@ const Navbar = () => {
           </div>
         </nav>
         <div
-          onClick={() => setDarkMode(!darkMode)}
-          className="flex items-center space-x-2"
+          onClick={toggleDarkMode}
+          className="flex items-center space-x-2 cursor-pointer"
         >
-          <Switch id="airplane-mode" />
-          <Label htmlFor="airplane-mode">
+          <Switch id="dark-mode-toggle" />
+          <Label htmlFor="dark-mode-toggle">
             <MoonIcon />
           </Label>
         </div>
         <div className="md:hidden">
-          <DashboardSidebar user={user} dispatch={dispatch} />
+          <NavSidebar user={user} dispatch={dispatch} />
         </div>
       </div>
     </header>

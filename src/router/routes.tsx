@@ -1,5 +1,7 @@
 import HomeLayout from "@/layout/HomeLayout";
 import MainLayout from "@/layout/MainLayout";
+import WinterClothesGrid from "@/pages/AllWinterClothes/AllWinterClothes";
+import WinterClothesDetail from "@/pages/AllWinterClothes/ClotheDetails";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import { createBrowserRouter } from "react-router-dom";
@@ -27,7 +29,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/winter-clothes",
-        element: <div>Profile</div>,
+        element: <WinterClothesGrid />,
+      },
+      {
+        path: "/winter-clothes/:id",
+        element: <WinterClothesDetail />,
       },
     ],
   },

@@ -1,7 +1,11 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useDarkMode } from "@/utils/DarkMoodProvider";
+import { cn } from "@/lib/utils";
 
 const ColdWeatherSafety: React.FC = () => {
+  const { darkMode } = useDarkMode();
+  console.log(darkMode);
   const tips = [
     {
       title: "Dress in Layers",
@@ -36,12 +40,18 @@ const ColdWeatherSafety: React.FC = () => {
   ];
 
   return (
-    <section className="cold-weather-safety-section bg-blue-100 py-12 px-6">
+    <section
+      className={cn(
+        darkMode
+          ? "cold-weather-safety-section  py-12 px-6"
+          : "cold-weather-safety-section bg-blue-100 py-12 px-6"
+      )}
+    >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Cold Weather Safety Tips</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {tips.map((tip, index) => (
-            <Card key={index} className="p-6 bg-white shadow-md rounded-lg">
+            <Card key={index} className="p-6  shadow-md rounded-lg">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold mb-4">
                   {tip.title}

@@ -1,0 +1,709 @@
+[
+    {
+        "id": "41",
+        "image": "https://picsum.photos/240",
+        "title": "Insulated Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "1",
+        "image": "https://picsum.photos/200",
+        "title": "Warm Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A warm and comfortable jacket perfect for winter."
+    },
+    {
+        "id": "2",
+        "image": "https://picsum.photos/201",
+        "title": "Cozy Sweater",
+        "category": "Sweaters",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "description": "A cozy sweater to keep you warm during the cold months."
+    },
+    {
+        "id": "3",
+        "image": "https://picsum.photos/202",
+        "title": "Thermal Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "description": "Thermal gloves to keep your hands warm."
+    },
+    {
+        "id": "4",
+        "image": "https://picsum.photos/203",
+        "title": "Wool Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "One Size"
+        ],
+        "description": "A stylish wool scarf for added warmth and comfort."
+    },
+    {
+        "id": "5",
+        "image": "https://picsum.photos/204",
+        "title": "Fleece Hat",
+        "category": "Hats",
+        "sizes": [
+            "One Size"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "6",
+        "image": "https://picsum.photos/205",
+        "title": "Knitted Hat",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "7",
+        "image": "https://picsum.photos/206",
+        "title": "Insulated Boots",
+        "category": "Boots",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "8",
+        "image": "https://picsum.photos/207",
+        "title": "Down Vest",
+        "category": "Vests",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "9",
+        "image": "https://picsum.photos/208",
+        "title": "Winter Socks",
+        "category": "Socks",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "10",
+        "image": "https://picsum.photos/209",
+        "title": "Snow Pants",
+        "category": "Pants",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "11",
+        "image": "https://picsum.photos/210",
+        "title": "Flannel Shirt",
+        "category": "Shirts",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "12",
+        "image": "https://picsum.photos/211",
+        "title": "Heated Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "13",
+        "image": "https://picsum.photos/212",
+        "title": "Thermal Socks",
+        "category": "Socks",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "14",
+        "image": "https://picsum.photos/213",
+        "title": "Winter Coat",
+        "category": "Coats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "15",
+        "image": "https://picsum.photos/214",
+        "title": "Fleece Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "16",
+        "image": "https://picsum.photos/215",
+        "title": "Beanie",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "17",
+        "image": "https://picsum.photos/216",
+        "title": "Insulated Mittens",
+        "category": "Mittens",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "18",
+        "image": "https://picsum.photos/217",
+        "title": "Snow Boots",
+        "category": "Boots",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "19",
+        "image": "https://picsum.photos/218",
+        "title": "Puffer Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "20",
+        "image": "https://picsum.photos/219",
+        "title": "Wool Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "21",
+        "image": "https://picsum.photos/220",
+        "title": "Thermal Leggings",
+        "category": "Leggings",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "22",
+        "image": "https://picsum.photos/221",
+        "title": "Down Parka",
+        "category": "Parkas",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "23",
+        "image": "https://picsum.photos/222",
+        "title": "Fleece Hat",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "24",
+        "image": "https://picsum.photos/223",
+        "title": "Ski Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "25",
+        "image": "https://picsum.photos/224",
+        "title": "Snow Goggles",
+        "category": "Accessories",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "26",
+        "image": "https://picsum.photos/225",
+        "title": "Fleece Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "27",
+        "image": "https://picsum.photos/226",
+        "title": "Thermal Top",
+        "category": "Tops",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "28",
+        "image": "https://picsum.photos/227",
+        "title": "Windbreaker",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "29",
+        "image": "https://picsum.photos/228",
+        "title": "Snow Bibs",
+        "category": "Pants",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "30",
+        "image": "https://picsum.photos/229",
+        "title": "Wool Beanie",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "31",
+        "image": "https://picsum.photos/230",
+        "title": "Heated Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "32",
+        "image": "https://picsum.photos/231",
+        "title": "Ski Pants",
+        "category": "Pants",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "33",
+        "image": "https://picsum.photos/232",
+        "title": "Insulated Vest",
+        "category": "Vests",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "34",
+        "image": "https://picsum.photos/233",
+        "title": "Wool Socks",
+        "category": "Socks",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "35",
+        "image": "https://picsum.photos/234",
+        "title": "Winter Hat",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "36",
+        "image": "https://picsum.photos/235",
+        "title": "Thermal Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "37",
+        "image": "https://picsum.photos/236",
+        "title": "Winter Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "38",
+        "image": "https://picsum.photos/237",
+        "title": "Down Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "39",
+        "image": "https://picsum.photos/238",
+        "title": "Fleece Vest",
+        "category": "Vests",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "40",
+        "image": "https://picsum.photos/239",
+        "title": "Knitted Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "42",
+        "image": "https://picsum.photos/241",
+        "title": "Snow Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "43",
+        "image": "https://picsum.photos/242",
+        "title": "Thermal Socks",
+        "category": "Socks",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "44",
+        "image": "https://picsum.photos/243",
+        "title": "Wool Mittens",
+        "category": "Mittens",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "45",
+        "image": "https://picsum.photos/244",
+        "title": "Ski Hat",
+        "category": "Hats",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "46",
+        "image": "https://picsum.photos/245",
+        "title": "Insulated Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "47",
+        "image": "https://picsum.photos/246",
+        "title": "Fleece Pants",
+        "category": "Pants",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "48",
+        "image": "https://picsum.photos/247",
+        "title": "Wool Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "49",
+        "image": "https://picsum.photos/248",
+        "title": "Winter Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "50",
+        "image": "https://picsum.photos/249",
+        "title": "Down Vest",
+        "category": "Vests",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "1",
+        "image": "https://picsum.photos/200",
+        "title": "Warm Jacket",
+        "category": "Jackets",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "2",
+        "image": "https://picsum.photos/201",
+        "title": "Cozy Sweater",
+        "category": "Sweaters",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "3",
+        "image": "https://picsum.photos/202",
+        "title": "Woolen Gloves",
+        "category": "Gloves",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "4",
+        "image": "https://picsum.photos/203",
+        "title": "Thermal Underwear",
+        "category": "Underwear",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "5",
+        "image": "https://picsum.photos/204",
+        "title": "Fleece Scarf",
+        "category": "Scarves",
+        "sizes": [
+            "One Size"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "6",
+        "image": "https://picsum.photos/205",
+        "title": "Knitted Hat",
+        "category": "Hats",
+        "sizes": [
+            "One Size"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "7",
+        "image": "https://picsum.photos/206",
+        "title": "Insulated Boots",
+        "category": "Boots",
+        "sizes": [
+            "9",
+            "10",
+            "11"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "8",
+        "image": "https://picsum.photos/207",
+        "title": "Down Vest",
+        "category": "Vests",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "9",
+        "image": "https://picsum.photos/208",
+        "title": "Winter Socks",
+        "category": "Socks",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    },
+    {
+        "id": "10",
+        "image": "https://picsum.photos/209",
+        "title": "Snow Pants",
+        "category": "Pants",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "description": "A fleece hat to keep your head warm."
+    }
+]

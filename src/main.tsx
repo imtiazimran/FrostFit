@@ -7,12 +7,15 @@ import { Provider } from "react-redux";
 import { persister, store } from "./redux/store.ts";
 import { Toaster } from "./components/ui/sonner.tsx";
 import { PersistGate } from "redux-persist/integration/react";
+import { DarkModeProvider } from "./utils/DarkMoodProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persister}>
-        <RouterProvider router={router} />
+        <DarkModeProvider>
+          <RouterProvider router={router} />
+        </DarkModeProvider>
       </PersistGate>
       <Toaster />
     </Provider>
