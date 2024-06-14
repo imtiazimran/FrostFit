@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery({
 })
 
 const interceptor: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async (args, api, extraOptions): Promise<any> => {
-    let result = await baseQuery(args, api, extraOptions)
+    const result = await baseQuery(args, api, extraOptions)
     console.log(result)
     return result
 }

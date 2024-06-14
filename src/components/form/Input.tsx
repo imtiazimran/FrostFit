@@ -6,9 +6,16 @@ type TInputProps = {
   type: string;
   name: string;
   icon?: ReactNode;
+  defaultValue?: string;
 };
 
-const WinterInput = ({ type, name, icon: Icon }: TInputProps) => {
+const WinterInput = ({
+  type,
+  name,
+  icon: Icon,
+  defaultValue,
+  ...props
+}: TInputProps) => {
   const { control } = useFormContext();
 
   return (
@@ -22,11 +29,13 @@ const WinterInput = ({ type, name, icon: Icon }: TInputProps) => {
         <Controller
           name={name}
           control={control}
+          defaultValue={defaultValue}
           render={({ field }) => (
             <Input
               {...field}
               type={type}
               id={name}
+              {...props}
               placeholder={name}
               className="pl-10"
             />

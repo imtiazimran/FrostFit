@@ -4,15 +4,14 @@ import { Card } from "@/components/ui/card";
 
 const DashboardSidebar = () => {
   return (
-    <Card className="h-screen w-64 p-4 shadow-lg">
+    <Card className="overflow-auto p-4 lg:p-5 bg-light-gray h-screen col-span-2  sticky top-0 left-0 shadow-lg">
       <nav className="flex flex-col space-y-2">
         <NavLink
-          to="/dashboard"
+          to="/dashboard/home"
           className={({ isActive }) =>
-            cn(
-              "p-2 rounded-lg",
-              isActive ? "bg-secondary text-white" : "hover:bg-gray-100"
-            )
+            cn("p-2 rounded-lg hover:bg-gray-100", {
+              "bg-secondary ": isActive,
+            })
           }
         >
           Dashboard Home
@@ -20,10 +19,9 @@ const DashboardSidebar = () => {
         <NavLink
           to="/dashboard/winter-clothes"
           className={({ isActive }) =>
-            cn(
-              "p-2 rounded-lg",
-              isActive ? "bg-secondary text-white" : "hover:bg-gray-100"
-            )
+            cn("p-2 rounded-lg hover:bg-gray-100", {
+              "bg-secondary ": isActive,
+            })
           }
         >
           All Winter Clothes
@@ -31,10 +29,9 @@ const DashboardSidebar = () => {
         <NavLink
           to="/dashboard/create-winter-clothes"
           className={({ isActive }) =>
-            cn(
-              "p-2 rounded-lg",
-              isActive ? "bg-secondary text-white" : "hover:bg-gray-100"
-            )
+            cn("p-2 rounded-lg hover:bg-gray-100", {
+              "bg-secondary ": isActive,
+            })
           }
         >
           Create Winter Clothes Post
