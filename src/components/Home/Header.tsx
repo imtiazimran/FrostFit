@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -13,8 +14,8 @@ import { Button } from "@/components/ui/button";
 
 function Header() {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [_current, setCurrent] = useState(0);
+  const [_count, setCount] = useState(0);
   const plugin = useRef(Autoplay({ delay: 2000 }));
   const sliderContent = [
     {
