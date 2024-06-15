@@ -37,7 +37,7 @@ const Login = () => {
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">Login</CardTitle>
         </CardHeader>
-        <CardContent className="flex items-center justify-between gap-3">
+        <CardContent className="flex flex-col-reverse md:flex-row items-center justify-between gap-3">
           <img
             src={loginIllustration}
             alt="Login Illustration"
