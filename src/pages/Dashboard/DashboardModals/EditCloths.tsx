@@ -18,20 +18,27 @@ import { ChangeEvent, useState } from "react";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { Label } from "@/components/ui/label";
+import { useUpdateClothMutation } from "@/redux/features/clothes/clothesApi";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 const imgKey = import.meta.env.VITE_IMGBB_KEY;
 type TCloth = {
-  image: string;
+  _id: string;
+  img: string;
   title: string;
   category: string;
   sizes: string[];
+  description: string;
 };
 
-const EditCloths = ({
-  cloth: { image, title, category, sizes },
-}: {
-  cloth: TCloth;
-}) => {
-  const [imgLink, setImgLink] = useState(image);
+const EditCloths = ({ cloth }: { cloth: TCloth }) => {
+  const [imgLink, setImgLink] = useState(cloth?.img);
+  const [updateCloth, { isLoading }] = useUpdateClothMutation();
+  const navigate = useNavigate();
+
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
   const handleFileUpload: any = async (
     event: ChangeEvent<HTMLInputElement>
   ) => {
@@ -50,8 +57,23 @@ const EditCloths = ({
       }
     }
   };
-  const handleModalConfirm = (data: FieldValues) => {
-    console.log({ ...data, imgLink });
+  const handleModalConfirm = async (data: FieldValues) => {
+    const toastId = toast.loading("Loading...");
+    const sizes = data.sizes.split(",");
+    const { result } = await updateCloth({
+      ...data,
+      img: imgLink,
+      sizes,
+      id: cloth?._id,
+    }).unwrap();
+    if (result.modifiedCount > 0) {
+      toast("Cloth Updated", {
+        id: toastId,
+        duration: 5000
+      });
+      toast.dismiss(toastId);
+      navigate("/dashboard/winter-clothes");
+    }
   };
   return (
     <div>
@@ -64,7 +86,7 @@ const EditCloths = ({
         <DialogContent>
           <Form onSubmit={handleModalConfirm}>
             <DialogHeader>
-              <DialogTitle>Are you sure Edit {title}?</DialogTitle>
+              <DialogTitle>Are you sure Edit {cloth.title}?</DialogTitle>
               <DialogDescription>
                 <div className="relative">
                   <Label
@@ -90,26 +112,32 @@ const EditCloths = ({
                   type="text"
                   name="title"
                   icon={<Edit />}
-                  defaultValue={title}
+                  defaultValue={cloth?.title}
                 />
                 <WinterInput
                   type="text"
                   name="category"
                   icon={<Edit />}
-                  defaultValue={category}
+                  defaultValue={cloth?.category}
                 />
                 <WinterInput
                   type="text"
                   name="sizes"
                   icon={<Edit />}
-                  defaultValue={sizes.toString()}
+                  defaultValue={cloth?.sizes?.toString()}
+                />
+                <WinterInput
+                  type="text"
+                  name="description"
+                  icon={<Edit />}
+                  defaultValue={cloth?.description}
                 />
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
               <DialogClose>
                 <Button
-                  onClick={() => setImgLink(image)}
+                  onClick={() => setImgLink(cloth?.img)}
                   className="w-full "
                   variant="outline"
                 >

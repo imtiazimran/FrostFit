@@ -25,6 +25,6 @@ const interceptor: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async 
 export const baseApi = createApi({
     reducerPath: "baseApi",
     baseQuery: interceptor,
-    tagTypes: ["baseApi"],
+    tagTypes: ["baseApi", "Clothes", "Cloth"],
     endpoints: () => ({})
 })

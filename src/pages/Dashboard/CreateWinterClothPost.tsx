@@ -9,13 +9,19 @@ import { FieldValues } from "react-hook-form";
 import axios from "axios";
 import { Label } from "@/components/ui/label";
 import { useCreateClothMutation } from "@/redux/features/clothes/clothesApi";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const imgKey = import.meta.env.VITE_IMGBB_KEY;
 
 const CreateWinterClothPost = () => {
   const [imgLink, setImgLink] = useState("");
-  const [createCloth, { isLoading, isSuccess }] = useCreateClothMutation();
+  const [createCloth, { isLoading }] = useCreateClothMutation();
+  const navigate = useNavigate();
 
+  if (isLoading) {
+    return <div>Loading....</div>;
+  }
   const handleFileUpload: any = async (
     event: ChangeEvent<HTMLInputElement>
   ) => {
@@ -36,9 +42,18 @@ const CreateWinterClothPost = () => {
   };
 
   const onSubmit = async (data: FieldValues) => {
+    const toastId = toast.loading("Loading...");
+    const sizes = data.sizes.split(",");
     try {
-      const res = await createCloth({ ...data, img: imgLink }).unwrap();
-      console.log({ res, isLoading, isSuccess });
+      const res = await createCloth({ ...data, img: imgLink, sizes }).unwrap();
+      if (res.result.insertedId) {
+        toast("Cloth Added", {
+          id: toastId,
+          duration: 5000,
+        });
+        toast.dismiss(toastId);
+        navigate("/dashboard/winter-clothes");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +75,7 @@ const CreateWinterClothPost = () => {
           <WinterInput type="text" name="category" icon={<Edit />} />
           <WinterInput type="text" name="title" icon={<Edit />} />
           <WinterInput type="text" name="sizes" icon={<Edit />} />
-          <WinterInput type="text" name="Decription" icon={<Edit />} />
+          <WinterInput type="text" name="description" icon={<Edit />} />
         </div>
         <Button className="my-1" type="submit">
           Submit

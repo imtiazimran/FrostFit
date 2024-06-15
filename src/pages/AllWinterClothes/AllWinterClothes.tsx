@@ -7,37 +7,25 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Container from "@/utils/Container";
-import { useEffect, useState } from "react";
-
-export type WinterClothesItem = {
-  id: string;
-  image: string;
-  title: string;
-  category: string;
-  sizes: string[];
-};
+import { useGetClothesQuery } from "@/redux/features/clothes/clothesApi";
+import { WinterClothesItem } from "@/components/Home/WinterPostCard";
 
 const WinterClothesGrid = () => {
-  const [winterClothesData, setWinterClothesData] = useState<
-    WinterClothesItem[]
-  >([]);
+  const { data, isLoading } = useGetClothesQuery(undefined);
 
-  useEffect(() => {
-    // Fetch data from API
-    fetch("/allClothes.json")
-      .then((response) => response.json())
-      .then((data) => setWinterClothesData(data));
-  }, []);
+  if (isLoading) {
+    return <div>Loading....</div>;
+  }
 
   return (
     <Container>
       <h1 className="text-center my-5">Available Winter Clothes</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
-        {winterClothesData.map((item) => (
-          <Card key={item.id} className="flex flex-col">
+        {data?.clothes?.map((item: WinterClothesItem) => (
+          <Card key={item._id} className="flex flex-col">
             <CardHeader>
               <img
-                src={item.image}
+                src={item.img}
                 alt={item.title}
                 className="w-full h-48 object-cover"
               />
@@ -48,14 +36,14 @@ const WinterClothesGrid = () => {
               <div className="mt-2">
                 <p className="font-semibold">Sizes Available:</p>
                 <ul className=" list-inside flex flex-wrap gap-2">
-                  {item.sizes.map((size) => (
+                  {item?.sizes?.map((size) => (
                     <li key={size}>{size}</li>
                   ))}
                 </ul>
               </div>
             </CardContent>
             <CardFooter className="mt-auto">
-              <Link to={`/winter-clothes/${item.id}`}>
+              <Link to={`/winter-clothes/${item._id}`}>
                 <Button variant="outline">View Detail</Button>
               </Link>
             </CardFooter>

@@ -12,16 +12,15 @@ import { Link } from "react-router-dom";
 
 import EditCloths from "./DashboardModals/EditCloths";
 import DeleteCloth from "./DashboardModals/DeleteCloth";
-import { useEffect, useState } from "react";
-import { WinterClothesItem } from "../AllWinterClothes/AllWinterClothes";
+import { useGetClothesQuery } from "@/redux/features/clothes/clothesApi";
+import { WinterClothesItem } from "@/components/Home/WinterPostCard";
 
 const ManageClothes = () => {
-  const [winterClothes, setWinterClothes] = useState<WinterClothesItem[]>([]);
-  useEffect(() => {
-    fetch("/allClothes.json")
-      .then((response) => response.json())
-      .then((data) => setWinterClothes(data));
-  }, []);
+  const { data, isLoading } = useGetClothesQuery(undefined);
+
+  if (isLoading) {
+    return <div>Loading....</div>;
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -43,17 +42,17 @@ const ManageClothes = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {winterClothes.map((item) => (
-            <TableRow className="hover:bg-muted " key={item.id}>
+          {data?.clothes?.map((item: WinterClothesItem) => (
+            <TableRow className="hover:bg-muted " key={item._id}>
               <TableCell>
-                <img className="size-12 rounded" src={item.image} alt="" />
+                <img className="size-12 rounded" src={item.img} alt="" />
               </TableCell>
               <TableCell>{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>
-              <TableCell>{item.sizes.join(", ")}</TableCell>
+              <TableCell>{item?.sizes?.join(", ") || "---"}</TableCell>
               <TableCell className="text-right">
                 <EditCloths cloth={item} />
-                <DeleteCloth id={item.id} />
+                <DeleteCloth id={item._id} />
               </TableCell>
             </TableRow>
           ))}
