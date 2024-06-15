@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useDarkMode } from "@/utils/DarkMoodProvider";
 import { cn } from "@/lib/utils";
-
+import { motion } from "framer-motion";
 const ColdWeatherSafety: React.FC = () => {
   const { darkMode } = useDarkMode();
   console.log(darkMode);
@@ -39,6 +39,24 @@ const ColdWeatherSafety: React.FC = () => {
     },
   ];
 
+  const cardVariant = {
+    initial: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.25,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardChildrenVariants = {
+    initial: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section
       className={cn(
@@ -49,20 +67,27 @@ const ColdWeatherSafety: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Cold Weather Safety Tips</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <motion.div
+          variants={cardVariant}
+          initial="initial"
+          whileInView="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+        >
           {tips.map((tip, index) => (
-            <Card key={index} className="p-6  shadow-md rounded-lg">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold mb-4">
-                  {tip.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{tip.content}</p>
-              </CardContent>
-            </Card>
+            <motion.div key={index} variants={cardChildrenVariants}>
+              <Card className="p-6  shadow-md rounded-lg">
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold mb-4">
+                    {tip.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{tip.content}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
