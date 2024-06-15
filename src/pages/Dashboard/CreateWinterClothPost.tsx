@@ -44,8 +44,14 @@ const CreateWinterClothPost = () => {
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Loading...");
     const sizes = data.sizes.split(",");
+    const amount = parseInt(data.amount);
     try {
-      const res = await createCloth({ ...data, img: imgLink, sizes }).unwrap();
+      const res = await createCloth({
+        ...data,
+        img: imgLink,
+        sizes,
+        amount,
+      }).unwrap();
       if (res.result.insertedId) {
         toast("Cloth Added", {
           id: toastId,
@@ -75,6 +81,7 @@ const CreateWinterClothPost = () => {
           <WinterInput type="text" name="category" icon={<Edit />} />
           <WinterInput type="text" name="title" icon={<Edit />} />
           <WinterInput type="text" name="sizes" icon={<Edit />} />
+          <WinterInput type="number" name="amount" icon={<Edit />} />
           <WinterInput type="text" name="description" icon={<Edit />} />
         </div>
         <Button className="my-1" type="submit">

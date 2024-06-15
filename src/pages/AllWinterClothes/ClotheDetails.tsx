@@ -32,7 +32,24 @@ const WinterClothesDetail = () => {
           </CardHeader>
           <CardContent className="md:w-1/2">
             <h2 className="text-2xl font-semibold">{data?.cloth?.title}</h2>
-            <p className="text-gray-500">{data?.cloth?.category}</p>
+            <div>
+              <span className="font-semibold">Category:</span>
+              <span className="text-gray-500 px-2">
+                {data?.cloth?.category}
+              </span>
+            </div>
+            <div>
+              <span className="font-semibold">Stock Available:</span>
+              <span className="text-gray-500 px-2">{data?.cloth?.amount}</span>
+            </div>
+            {data?.cloth?.donationAmount && (
+              <div>
+                <span className="font-semibold">Donated Till now:</span>
+                <span className="text-gray-500 px-2">
+                  {data?.cloth?.donationAmount}
+                </span>
+              </div>
+            )}
             <div className="mt-4">
               <p className="font-semibold">Sizes Available:</p>
               <ul className="list-disc list-inside">
@@ -48,7 +65,7 @@ const WinterClothesDetail = () => {
           </CardContent>
         </div>
         <CardFooter>
-          <DonationModal />
+          <DonationModal id={id} />
         </CardFooter>
       </Card>
     </Container>

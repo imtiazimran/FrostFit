@@ -67,9 +67,9 @@ const EditCloths = ({ cloth }: { cloth: TCloth }) => {
       id: cloth?._id,
     }).unwrap();
     if (result.modifiedCount > 0) {
-      toast("Cloth Updated", {
+      toast.success("Cloth Updated", {
         id: toastId,
-        duration: 5000
+        duration: 5000,
       });
       toast.dismiss(toastId);
       navigate("/dashboard/winter-clothes");

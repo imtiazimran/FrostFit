@@ -31,7 +31,7 @@ const ManageClothes = () => {
         </Link>
       </div>
       <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableCaption>A list of All the available Clothes.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Image</TableHead>
@@ -45,7 +45,9 @@ const ManageClothes = () => {
           {data?.clothes?.map((item: WinterClothesItem) => (
             <TableRow className="hover:bg-muted " key={item._id}>
               <TableCell>
-                <img className="size-12 rounded" src={item.img} alt="" />
+                <Link to={`/winter-clothes/${item._id}`}>
+                  <img className="size-12 rounded" src={item.img} alt="" />
+                </Link>
               </TableCell>
               <TableCell>{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>

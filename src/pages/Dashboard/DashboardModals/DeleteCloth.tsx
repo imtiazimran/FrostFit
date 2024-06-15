@@ -9,10 +9,23 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useDeleteClothMutation } from "@/redux/features/clothes/clothesApi";
 import { Trash } from "lucide-react";
+import { toast } from "sonner";
 
-const DeleteCloth = ({ id }) => {
-  const handleDelete = () => {};
+const DeleteCloth = ({ id }: { id: string }) => {
+  const [deleteCloth] = useDeleteClothMutation();
+  const handleDelete = async () => {
+    const toastId = toast.loading("Loading");
+    const { result } = await deleteCloth(id).unwrap();
+    if (result.deletedCount > 0) {
+      toast.success("Cloth Deleted", {
+        id: toastId,
+        duration: 5000,
+      });
+    }
+    console.log(result);
+  };
   return (
     <div>
       <Dialog>
@@ -38,7 +51,11 @@ const DeleteCloth = ({ id }) => {
               </Button>
             </DialogClose>
             <DialogClose>
-              <Button className=" my-1" variant="destructive">
+              <Button
+                onClick={handleDelete}
+                className=" my-1"
+                variant="destructive"
+              >
                 Confirm
               </Button>
             </DialogClose>
