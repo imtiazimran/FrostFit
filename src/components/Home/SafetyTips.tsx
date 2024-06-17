@@ -3,9 +3,9 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useDarkMode } from "@/utils/DarkMoodProvider";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+
 const ColdWeatherSafety: React.FC = () => {
   const { darkMode } = useDarkMode();
-  console.log(darkMode);
   const tips = [
     {
       title: "Dress in Layers",
@@ -61,7 +61,7 @@ const ColdWeatherSafety: React.FC = () => {
     <section
       className={cn(
         darkMode
-          ? "cold-weather-safety-section  py-12 px-6"
+          ? "cold-weather-safety-section py-12 px-6"
           : "cold-weather-safety-section bg-blue-100 py-12 px-6"
       )}
     >
@@ -75,15 +75,21 @@ const ColdWeatherSafety: React.FC = () => {
         >
           {tips.map((tip, index) => (
             <motion.div key={index} variants={cardChildrenVariants}>
-              <Card className="p-6  shadow-md rounded-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold mb-4">
-                    {tip.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>{tip.content}</p>
-                </CardContent>
+              <Card className="p-6 shadow-md rounded-lg">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <CardHeader>
+                    <CardTitle className="text-xl font-semibold mb-4">
+                      {tip.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{tip.content}</p>
+                  </CardContent>
+                </motion.div>
               </Card>
             </motion.div>
           ))}
