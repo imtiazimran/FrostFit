@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useDarkMode } from "@/utils/DarkMoodProvider";
+import { motion } from "framer-motion";
 
 interface Story {
   id: number;
@@ -42,6 +43,37 @@ const successStories: Story[] = [
 
 const SuccessStories: React.FC = () => {
   const { darkMode } = useDarkMode();
+
+  const parentVariant = {
+    init: {
+      opacity: 0,
+    },
+    vis: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.25,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const childrenVariant = {
+    init: {
+      opacity: 0,
+      y: 100,
+      scale: 0.5
+    },
+    vis: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section
       className={cn(
@@ -54,27 +86,37 @@ const SuccessStories: React.FC = () => {
         <h2 className="text-3xl font-bold mb-6">
           Success Stories from Beneficiaries
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <motion.div
+          variants={parentVariant}
+          initial={"init"}
+          whileInView={"vis"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+        >
           {successStories.map((story) => (
-            <Card key={story.id} className="p-6  shadow-md rounded-lg">
-              <CardHeader>
-                <img
-                  src={story.image}
-                  alt={story.name}
-                  className="w-16 h-16 rounded-full mx-auto mb-4"
-                />
-                <CardTitle className="text-xl font-semibold mb-2">
-                  {story.name}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  <p>{story.story}</p>
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <motion.div
+              variants={childrenVariant}
+              key={story.id}
+            >
+              <Card className="p-6  shadow-md rounded-lg">
+                <CardHeader>
+                  <img
+                    src={story.image}
+                    alt={story.name}
+                    className="w-16 h-16 rounded-full mx-auto mb-4"
+                  />
+                  <CardTitle className="text-xl font-semibold mb-2">
+                    {story.name}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    <p>{story.story}</p>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

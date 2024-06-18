@@ -54,7 +54,7 @@ const ColdWeatherSafety: React.FC = () => {
 
   const cardChildrenVariants = {
     initial: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -76,20 +76,14 @@ const ColdWeatherSafety: React.FC = () => {
           {tips.map((tip, index) => (
             <motion.div key={index} variants={cardChildrenVariants}>
               <Card className="p-6 shadow-md rounded-lg">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold mb-4">
-                      {tip.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{tip.content}</p>
-                  </CardContent>
-                </motion.div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold mb-4">
+                    {tip.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{tip.content}</p>
+                </CardContent>
               </Card>
             </motion.div>
           ))}
