@@ -20,7 +20,7 @@ const Register = () => {
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Registering...");
 
-    const res = await register(data);
+    const res = await register({...data, role: "user"});
     if (res?.data?.success) {
       dispatch(setUser({ user: "User Will be Here", token: res?.data?.token }));
       toast("Register Successful", {

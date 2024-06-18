@@ -17,6 +17,7 @@ export type WinterClothesItem = {
   category: string;
   sizes: string[];
   description: string;
+  addedBy: string;
 };
 
 const WinterPostCard = () => {

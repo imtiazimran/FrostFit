@@ -13,8 +13,15 @@ const usersApi = baseApi.injectEndpoints({
                 url: `/user`,
                 method: "GET"
             })
-        })
+        }),
+        updateUserRole: build.mutation({
+            query: ({ id, role }: {id: string, role: string}) => ({
+                url: `users/${id}`,
+                method: 'PATCH',
+                body: { role },
+            }),
+        }),
     })
-}) 
+})
 
-export const { useGetUsersQuery, useGetUserQuery } = usersApi
+export const { useGetUsersQuery, useGetUserQuery, useUpdateUserRoleMutation } = usersApi

@@ -14,9 +14,21 @@ import EditCloths from "./DashboardModals/EditCloths";
 import DeleteCloth from "./DashboardModals/DeleteCloth";
 import { useGetClothesQuery } from "@/redux/features/clothes/clothesApi";
 import { WinterClothesItem } from "@/components/Home/WinterPostCard";
+import { useAppSelector } from "@/redux/hooks";
+import { selectUser } from "@/redux/features/authentication/authSlice";
+import { cn } from "@/lib/utils";
+
+type TUser = {
+  name: string;
+  _id: string;
+  email: string;
+  role: string;
+};
 
 const ManageClothes = () => {
+  const user = useAppSelector(selectUser) as TUser | null;
   const { data, isLoading } = useGetClothesQuery(undefined);
+ 
 
   if (isLoading) {
     return <div>Loading....</div>;
@@ -52,7 +64,11 @@ const ManageClothes = () => {
               <TableCell>{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>
               <TableCell>{item?.sizes?.join(", ") || "---"}</TableCell>
-              <TableCell className="text-right">
+              <TableCell
+                className={cn("text-right ", {
+                  "pointer-events-none opacity-60": user?.role !== "admin" || item.addedBy !== user?._id,
+                })}
+              >
                 <EditCloths cloth={item} />
                 <DeleteCloth id={item._id} />
               </TableCell>
