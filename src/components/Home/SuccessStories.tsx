@@ -97,7 +97,7 @@ const SuccessStories: React.FC = () => {
               variants={childrenVariant}
               key={story.id}
             >
-              <Card className="p-6  shadow-md rounded-lg">
+              <Card className="p-6  shadow-md rounded-lg h-[336px]">
                 <CardHeader>
                   <img
                     src={story.image}

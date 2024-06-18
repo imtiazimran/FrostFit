@@ -75,7 +75,7 @@ const ColdWeatherSafety: React.FC = () => {
         >
           {tips.map((tip, index) => (
             <motion.div key={index} variants={cardChildrenVariants}>
-              <Card className="p-6 shadow-md rounded-lg">
+              <Card className="p-6 shadow-md rounded-lg h-[309px]">
                 <CardHeader>
                   <CardTitle className="text-xl font-semibold mb-4">
                     {tip.title}
