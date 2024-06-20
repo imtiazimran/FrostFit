@@ -41,8 +41,8 @@ const Register = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex items-center  justify-around gap-3">
-          <img className="w-1/2" src={registerImg} alt="" />
-          <Form className="w-1/2" onSubmit={onSubmit}>
+          <img className="hidden md:block w-1/2" src={registerImg} alt="" />
+          <Form className="md:w-1/2" onSubmit={onSubmit}>
             <WinterInput icon={<User />} type="text" name="name" />
             <WinterInput icon={<Mail />} type="email" name="email" />
             <WinterInput icon={<Lock />} type="password" name="password" />

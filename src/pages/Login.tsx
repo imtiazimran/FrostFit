@@ -41,9 +41,9 @@ const Login = () => {
           <img
             src={loginIllustration}
             alt="Login Illustration"
-            className="mb-5 w-1/2"
+            className="mb-5 hidden md:block md:w-1/2"
           />
-          <Form className="w-1/2" onSubmit={onSubmit}>
+          <Form className="md:w-1/2" onSubmit={onSubmit}>
             <WinterInput type="email" name="email" icon={<Mail />} />
             <WinterInput type="password" name="password" icon={<Lock />} />
             <Button type="submit" className="w-full mt-4">

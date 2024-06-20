@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import { useAppSelector } from '@/redux/hooks';
-import { selectUser } from '@/redux/features/authentication/authSlice';
-import { motion } from 'framer-motion';
-import { useUpdateUserRoleMutation } from '@/redux/features/users/usersApi';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTrigger } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Select, SelectItem } from '@/components/ui/select';
+import React from "react";
+import { useAppSelector } from "@/redux/hooks";
+import { selectUser } from "@/redux/features/authentication/authSlice";
+import {
+  useGetUsersQuery,
+  useUpdateUserRoleMutation,
+} from "@/redux/features/users/usersApi";
+import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { toast } from "sonner";
 
 type TUser = {
   _id: string;
@@ -15,49 +24,69 @@ type TUser = {
   role: string;
 };
 
-type UpdateUserRoleProps = {
-  user: TUser;
-};
 
-const UpdateUserRole: React.FC<UpdateUserRoleProps> = ({ user }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedRole, setSelectedRole] = useState(user.role);
+
+const UpdateUserRole: React.FC = () => {
+  const { data, isLoading } = useGetUsersQuery(undefined);
   const [updateUserRole] = useUpdateUserRoleMutation();
   const currentUser = useAppSelector(selectUser) as TUser | null;
 
-  const handleUpdateRole = async () => {
-    if (selectedRole !== user.role) {
-      await updateUserRole({ id: user._id, role: selectedRole });
-      setIsDialogOpen(false);
+  const handleUpdateRole = async (id: string) => {
+    const toastId = toast.loading("loading...");
+    const res = await updateUserRole({ id, role: "admin" });
+    if (res?.data?.success === true) {
+      toast.success("User Updated", {
+        id: toastId,
+        duration: 5000,
+      });
     }
+    console.log(res);
   };
 
-  if (currentUser?.role !== 'admin') {
-    return null;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!data) {
+    return <p>No data available</p>;
+  }
+
+  if (currentUser?.role !== "admin") {
+    return (
+      <div className="text-center">Sorry Only admin can use this page</div>
+    );
   }
 
   return (
     <div>
-      <Button onClick={() => setIsDialogOpen(true)}>Update Role</Button>
-      <Dialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-        <DialogTrigger as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <DialogContent>
-            <DialogHeader>Update User Role</DialogHeader>
-            <DialogDescription>
-              <Label htmlFor="role-select">Select Role</Label>
-              <Select id="role-select" value={selectedRole} onValueChange={setSelectedRole}>
-                <SelectItem value="user">User</SelectItem>
-                <SelectItem value="admin">Admin</SelectItem>
-                <SelectItem value="moderator">Moderator</SelectItem>
-              </Select>
-            </DialogDescription>
-            <DialogFooter>
-              <Button variant="secondary" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
-              <Button variant="primary" onClick={handleUpdateRole}>Update</Button>
-            </DialogFooter>
-          </DialogContent>
-        </DialogTrigger>
-      </Dialog>
+      <Table>
+        <TableCaption>Update User Role</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Email</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Role</TableHead>
+            <TableHead className="text-right">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.users.map((user: TUser) => (
+            <TableRow key={user._id}>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.role}</TableCell>
+              <TableCell className="text-right">
+                <Button
+                  disabled={user.role === "admin"}
+                  onClick={() => handleUpdateRole(user._id)}
+                >
+                  Make Admin
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

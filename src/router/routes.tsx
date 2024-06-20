@@ -6,8 +6,10 @@ import WinterClothesDetail from "@/pages/AllWinterClothes/ClotheDetails";
 import CreateWinterClothPost from "@/pages/Dashboard/CreateWinterClothPost";
 import DashboardHome from "@/pages/Dashboard/DashboardHome";
 import ManageClothes from "@/pages/Dashboard/ManageClothes";
+import UpdateUserRole from "@/pages/Dashboard/ManageUsers";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import PrivetRoute from "@/utils/PrivetRoute";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -37,7 +39,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: (
+          <PrivetRoute>
+            <DashboardLayout />
+          </PrivetRoute>
+        ),
         children: [
           {
             index: true,
@@ -54,6 +60,10 @@ export const router = createBrowserRouter([
           {
             path: "create-winter-clothes",
             element: <CreateWinterClothPost />,
+          },
+          {
+            path: "manage-users",
+            element: <UpdateUserRole />,
           },
         ],
       },

@@ -73,12 +73,12 @@ function Header() {
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {sliderContent.map((content, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex flex-col md:flex-row items-center justify-center p-6">
-                    <div className="text-center w-1/2 mx-4">
+                  <CardContent className="flex flex-col-reverse md:flex-row items-center justify-center p-6">
+                    <div className="text-center md:w-1/2 mx-1 md:mx-4">
                       <h1 className="text-2xl md:text-4xl">
                         Warm Hearts, Warm Clothes
                       </h1>
@@ -90,9 +90,9 @@ function Header() {
                       <Button className="mt-4">Learn More</Button>
                     </div>
                     <img
-                      className="w-1/2 rounded aspect-video m-1"
-                      src={sliderContent[index].src}
-                      alt={sliderContent[index].alt}
+                      className="md:w-1/2 rounded aspect-video m-1"
+                      src={content.src}
+                      alt={content.alt}
                     />
                   </CardContent>
                 </Card>
