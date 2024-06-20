@@ -16,19 +16,23 @@ const imgKey = import.meta.env.VITE_IMGBB_KEY;
 
 const CreateWinterClothPost = () => {
   const [imgLink, setImgLink] = useState("");
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [createCloth, { isLoading }] = useCreateClothMutation();
   const navigate = useNavigate();
 
-  if (isLoading) {
-    return <div>Loading....</div>;
+  if(isLoading){
+    return <div>Loading....</div>
   }
-  const handleFileUpload: any = async (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
+
+  // Function to handle file upload and set selected image
+  const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
+      setSelectedImage(file);
+
       const formData = new FormData();
       formData.append("image", file);
+
       try {
         const response = await axios.post(
           `https://api.imgbb.com/1/upload?key=${imgKey}`,
@@ -42,9 +46,16 @@ const CreateWinterClothPost = () => {
   };
 
   const onSubmit = async (data: FieldValues) => {
+    // Check if all fields are filled
+    if (!selectedImage || !data.category || !data.title || !data.sizes || !data.amount || !data.description) {
+      toast.error("Please fill in all fields and upload an image.");
+      return;
+    }
+
     const toastId = toast.loading("Loading...");
     const sizes = data.sizes.split(",");
     const amount = parseInt(data.amount);
+
     try {
       const res = await createCloth({
         ...data,
@@ -52,6 +63,7 @@ const CreateWinterClothPost = () => {
         sizes,
         amount,
       }).unwrap();
+
       if (res.result.insertedId) {
         toast("Cloth Added", {
           id: toastId,
@@ -64,6 +76,7 @@ const CreateWinterClothPost = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="">
       <Form
@@ -77,12 +90,20 @@ const CreateWinterClothPost = () => {
             type="file"
             name="image"
             id="image"
+            required // Ensures the file input is 
           />
-          <WinterInput type="text" name="category" icon={<Edit />} />
-          <WinterInput type="text" name="title" icon={<Edit />} />
-          <WinterInput type="text" name="sizes" icon={<Edit />} />
-          <WinterInput type="number" name="amount" icon={<Edit />} />
-          <WinterInput type="text" name="description" icon={<Edit />} />
+          {selectedImage && (
+            <img
+              src={URL.createObjectURL(selectedImage)}
+              alt="Selected Preview"
+              className="max-w-full h-auto mt-2"
+            />
+          )}
+          <WinterInput type="text" name="category" icon={<Edit />}  />
+          <WinterInput type="text" name="title" icon={<Edit />}  />
+          <WinterInput type="text" name="sizes" icon={<Edit />}  />
+          <WinterInput type="number" name="amount" icon={<Edit />}  />
+          <WinterInput type="text" name="description" icon={<Edit />}  />
         </div>
         <Button className="my-1" type="submit">
           Submit

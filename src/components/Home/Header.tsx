@@ -11,42 +11,62 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [api, setApi] = useState<CarouselApi>();
   const [_current, setCurrent] = useState(0);
   const [_count, setCount] = useState(0);
   const plugin = useRef(Autoplay({ delay: 2000 }));
+
   const sliderContent = [
     {
       id: 1,
-      src: "https://i.ytimg.com/vi/KXiRTu7dWGQ/maxresdefault.jpg",
+      src: "https://werecycleclothes.org.uk/wp-content/uploads/2024/01/helping-homeless-with-warm-clothes.jpg",
       alt: "image",
+      headline: "Warm Hearts, Warm Clothes",
+      description:
+        "Join us in our mission to distribute winter clothes to those in need. Together, we can ensure everyone stays warm and comfortable during the cold season.",
     },
     {
       id: 2,
-      src: "https://st.depositphotos.com/10614052/52669/i/600/depositphotos_526690012-stock-photo-beautiful-young-couple-winter-clothes.jpg",
+      src: "https://www.ncwlibraries.org/wp-content/uploads/Warm-Clothing-537x374-1.jpg",
       alt: "image",
+      headline: "Stay Warm, Spread Warmth",
+      description:
+        "Your donations help us provide essential winter clothing to communities in need. Every contribution makes a difference.",
     },
     {
       id: 3,
-      src: "https://img.freepik.com/free-photo/pretty-charming-young-woman-red-wall-winter-outfit_291650-780.jpg?t=st=1717614726~exp=1717618326~hmac=e48c8f5d3d86d453b363c7509a41d93fb138ba1e8ba456e785950ac08f651a0f&w=996",
+      src: "https://www.wantedinmilan.com/i/gallery-zoom/storage/uploads/2012/11/165you4ne.jpg",
       alt: "image",
+      headline: "Empowering Communities with Winter Essentials",
+      description:
+        "Be a part of our mission to ensure no one has to face the cold unprepared. Your support is invaluable.",
     },
     {
       id: 4,
-      src: "https://img.freepik.com/free-photo/portrait-bearded-male-dressed-warm-jacket-scarf-hold-backpack-isolated-grey-background_613910-15968.jpg?t=st=1717614843~exp=1717618443~hmac=8a13a878cb3c0c44697ba6d826caa6b9e6e245f634237163e93614ba115a847d&w=996",
+      src: "https://www.pnj.com/gcdn/-mm-/582568e00c17e48a137dbf529626145d89c4861c/c=0-151-3000-1846/local/-/media/2018/01/17/Pensacola/Pensacola/636518005144074674-Helping-the-Homeless-003.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp",
       alt: "image",
+      headline: "Distribute Hope, One Coat at a Time",
+      description:
+        "Help us distribute winter clothes to those who need them the most. Together, we can spread warmth and hope.",
     },
     {
       id: 5,
-      src: "https://img.freepik.com/free-photo/cute-girl-red-winter-clothes_23-2148333147.jpg?t=st=1717615170~exp=1717618770~hmac=d3b5f54325696b9fb3739a5c27c1eb83e570e0329a20d76d7fd956691ca66352&w=996",
+      src: "https://werecycleclothes.org.uk/wp-content/uploads/2023/12/Winter-donation-to-homeless-1200x663.jpg",
       alt: "image",
+      headline: "Bringing Warmth to Those in Need",
+      description:
+        "Our mission is to provide winter clothes to those in need. Your generosity makes it possible.",
     },
     {
       id: 6,
-      src: "https://img.freepik.com/free-vector/flat-winter-clothes-essentials-set_23-2148374778.jpg?t=st=1717615241~exp=1717618841~hmac=8244d786db047e568d11e1adbd79493d6e9cb8865d35fb1cd27561170f288489&w=740",
+      src: "https://werecycleclothes.org.uk/wp-content/uploads/2024/01/winter-clothes-donation-for-homeless.jpg",
       alt: "image",
+      headline: "Your Winter Clothes Can Make a Difference",
+      description:
+        "Donate your winter clothes and make a real difference in someone's life. Every piece counts.",
     },
   ];
 
@@ -68,26 +88,28 @@ function Header() {
       <Carousel
         setApi={setApi}
         plugins={[plugin.current]}
-        className="w-full  mx-auto"
+        opts={{
+          loop: true,
+          dragFree: true,
+        }}
+        className="w-full mx-auto"
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
-          {sliderContent.map((content, index) => (
-            <CarouselItem key={index}>
+          {sliderContent.map((content) => (
+            <CarouselItem key={content.id}>
               <div className="p-1">
                 <Card>
                   <CardContent className="flex flex-col-reverse md:flex-row items-center justify-center p-6">
                     <div className="text-center md:w-1/2 mx-1 md:mx-4">
                       <h1 className="text-2xl md:text-4xl">
-                        Warm Hearts, Warm Clothes
+                        {content.headline}
                       </h1>
-                      <p>
-                        Join us in our mission to distribute winter clothes to
-                        those in need. Together, we can ensure everyone stays
-                        warm and comfortable during the cold season.
-                      </p>
-                      <Button className="mt-4">Learn More</Button>
+                      <p>{content.description}</p>
+                      <Link to={"/blogs"}>
+                      <Button className="mt-4">See Blogs</Button>
+                      </Link>
                     </div>
                     <img
                       className="md:w-1/2 rounded aspect-video m-1"

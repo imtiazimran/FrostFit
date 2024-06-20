@@ -30,7 +30,7 @@ const DashboardSidebar : FC<DashboardSidebarProps> = ({ closeSidebar }) => {
           }
           onClick={closeSidebar}
         >
-          All Winter Clothes
+          Manage Winter Clothes
         </NavLink>
         <NavLink
           to="/dashboard/create-winter-clothes"

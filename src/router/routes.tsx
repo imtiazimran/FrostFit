@@ -3,6 +3,7 @@ import HomeLayout from "@/layout/HomeLayout";
 import MainLayout from "@/layout/MainLayout";
 import WinterClothesGrid from "@/pages/AllWinterClothes/AllWinterClothes";
 import WinterClothesDetail from "@/pages/AllWinterClothes/ClotheDetails";
+import BenefitsOfDonating from "@/pages/Blog";
 import CreateWinterClothPost from "@/pages/Dashboard/CreateWinterClothPost";
 import DashboardHome from "@/pages/Dashboard/DashboardHome";
 import ManageClothes from "@/pages/Dashboard/ManageClothes";
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/winter-clothes/:id",
         element: <WinterClothesDetail />,
+      },
+      {
+        path: "blogs",
+        element: <BenefitsOfDonating/>
       },
       {
         path: "/dashboard",
