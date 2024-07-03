@@ -143,11 +143,11 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 
 ### Live Deployment
 
-- [Live URL](https://your-live-deployment-link.com)
+- [Live URL](https://frost-fit.vercel.app/)
 
 ### Demo Video
 
-- [Demo Video Link](https://your-demo-video-link.com)
+- [Demo Video Link](https://drive.google.com/file/d/1fZS8ZzZUMbyL6Z836b32LgxVEJHEzIwW/view)
 
 ## Contact
 
