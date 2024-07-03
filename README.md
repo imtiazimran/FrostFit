@@ -89,12 +89,6 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 - Deploy the application on Vercel or Netlify.
 - Thoroughly test all functionalities to ensure robust performance.
 
-## Submission Guidelines
-
-- Submit a well-documented codebase with clear comments.
-- Include a README file with setup and usage instructions.
-- Provide links to the GitHub repositories and a live deployment.
-- Submit a demo video showcasing the functionality of the project.
 
 ## How to Run the Application Locally
 
@@ -107,39 +101,39 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 
 1. **Clone the repositories:**
 
-   \`\`\`bash
+```bash
    git clone <frontend-repo-url>
    git clone <backend-repo-url>
-   \`\`\`
+   ```
 
 2. **Navigate to the project directories:**
 
-   \`\`\`bash
+```bash
    cd frontend-repo
    cd backend-repo
-   \`\`\`
+   ```
 
 3. **Install dependencies:**
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 ### Running the Application
 
 1. **Start the backend server:**
 
-   \`\`\`bash
+  ```bash
    cd backend-repo
    npm start
-   \`\`\`
+  ```
 
 2. **Start the frontend server:**
 
-   \`\`\`bash
+  ```bash
    cd frontend-repo
    npm start
-   \`\`\`
+   ```
 
 ### Live Deployment
 
