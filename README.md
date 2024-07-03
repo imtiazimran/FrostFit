@@ -153,14 +153,5 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 
 For any questions or clarifications, please feel free to reach out.
 
-## Important Note
 
-Plagiarism is strictly prohibited. Ensure that the code you submit is your own work. Any instances of plagiarism will result in 0 marks.
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Good luck with your project!
