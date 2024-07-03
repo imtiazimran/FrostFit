@@ -102,15 +102,15 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 1. **Clone the repositories:**
 
 ```bash
-   git clone <frontend-repo-url>
-   git clone <backend-repo-url>
+   git clone <https://github.com/imtiazimran/FrostFit.git>
+   git clone <https://github.com/imtiazimran/FrostFit-Backend.git>
    ```
 
 2. **Navigate to the project directories:**
 
 ```bash
-   cd frontend-repo
-   cd backend-repo
+   cd FrostFit
+   cd FrostFit-Backend
    ```
 
 3. **Install dependencies:**
@@ -124,15 +124,15 @@ The Distribution of Winter Clothes Management Platform is a comprehensive web ap
 1. **Start the backend server:**
 
   ```bash
-   cd backend-repo
+   cd FrostFit-Backend
    npm start
   ```
 
 2. **Start the frontend server:**
 
   ```bash
-   cd frontend-repo
-   npm start
+   cd FrostFit
+   npm run dev
    ```
 
 ### Live Deployment
