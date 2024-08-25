@@ -6,7 +6,7 @@ import { logout, setUser } from "../features/authentication/authSlice";
 
 const baseQuery = fetchBaseQuery({
     // baseUrl: "http://localhost:5000/api/v1",
-    baseUrl: "https://frostfitserver.vercel.app/api/v1",
+    baseUrl: "https://frost-fit-backend.vercel.app/api/v1",
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token
@@ -24,7 +24,7 @@ const interceptor: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async 
 
         console.log("sending refresh token")
         const res = await axios.post(
-            "https://frostfitserver.vercel.app/api/v1/refresh",
+            "https://frost-fit-backend.vercel.app/api/v1/refresh",
             {},
             {
                 withCredentials: true,
